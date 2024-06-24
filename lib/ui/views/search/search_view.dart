@@ -1,3 +1,4 @@
+import 'package:auth_register/serves/storage/storage_serves.dart';
 import 'package:auth_register/ui/provider/main_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -71,7 +72,12 @@ class SearchView extends StatelessWidget {
                                   children: [
                                     IconButton(
                                       onPressed: () {
-                                        //context.read<AddFovoutite>().newAddForward(imageData['src']['original']);
+                                        List forvard = StorageServes.get('forwards')??[];
+                                        forvard.add({
+                                          'image':imageData['src']['original']
+                                        });
+                                        StorageServes.put('forwards', forvard);
+                                        print(imageData['src']['original']);
                                       },
                                       icon: const Icon(
                                         Icons.favorite,

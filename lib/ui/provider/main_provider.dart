@@ -59,7 +59,6 @@ class MainProvider extends ChangeNotifier {
   Future searchImage() async {
     if (isLoading) return;
     String searchText = searchController.text;
-    print(searchText);
     if (searchText.isEmpty) {
       searchText = "person";
       notifyListeners();
@@ -80,7 +79,6 @@ class MainProvider extends ChangeNotifier {
 
     if (res.status == MyResponseStatus.success) {
       images = res.data['photos'];
-      //print(images);
       notifyListeners();
     }
 
@@ -89,4 +87,6 @@ class MainProvider extends ChangeNotifier {
 
 
   }
+
+
 }

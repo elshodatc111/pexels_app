@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:get_storage/get_storage.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDerectory = await getApplicationDocumentsDirectory();
   Hive.init(appDocumentDerectory.path);
   await Hive.openBox('auth');
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
