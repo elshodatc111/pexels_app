@@ -11,4 +11,10 @@ class ForwardProvider extends ChangeNotifier{
     forwards = StorageServes.get('forwards')??[];
     notifyListeners();
   }
+  void removeTodo(int index) {
+    forwards = StorageServes.get("forwards");
+    forwards.removeAt(index);
+    StorageServes.put("forwards", forwards);
+    notifyListeners();
+  }
 }
